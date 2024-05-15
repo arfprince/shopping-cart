@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+</head>
+<body>
+    <!--navbar-->
+    <header>
+        <div class="navbar bg-base-100">
+          <div class="flex-none">
+            <button class="btn btn-square btn-ghost">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+          </div>
+          
+          <div class="flex-1">
+            <a href="index.html" class="btn btn-ghost text-xl" target="_self">MegaMart</a>
+          </div>
+  
+          <div class="flex-none">
+            <a href="signin-up.html" class="btn btn-ghost" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                class="text-primary"
+                <circle cx="12" cy="8" r="4.75" stroke="#4A00FF" stroke-width="1.5"/>
+                <path d="M6 21C6 21 6 19.75 6 18.5C6 17.25 8.24914 16 12 16C15.7509 16 18 17.25 18 18.5C18 20.375 18 21 18 21" stroke="#4A00FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Sign Up/Sign In
+            </a>
+            <a href="cart.html" class="btn btn-ghost" target="_blank">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.42226 19.8203C7.84426 19.8203 8.18726 20.1633 8.18726 20.5853C8.18726 21.0073 7.84426 21.3493 7.42226 21.3493C7.00026 21.3493 6.65826 21.0073 6.65826 20.5853C6.65826 20.1633 7.00026 19.8203 7.42226 19.8203Z" stroke="#4A00FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.6747 19.8203C19.0967 19.8203 19.4397 20.1633 19.4397 20.5853C19.4397 21.0073 19.0967 21.3493 18.6747 21.3493C18.2527 21.3493 17.9097 21.0073 17.9097 20.5853C17.9097 20.1633 18.2527 19.8203 18.6747 19.8203Z" stroke="#4A00FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.74988 3.25L4.82988 3.61L5.79288 15.083C5.87088 16.018 6.65188 16.736 7.58988 16.736H18.5019C19.3979 16.736 20.1579 16.078 20.2869 15.19L21.2359 8.632C21.3529 7.823 20.7259 7.099 19.9089 7.099H5.16388" stroke="#4A00FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14.1254 10.795H16.8984" stroke="#4A00FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              Cart
+              <div class="badge badge-md text-blue-700">0</div>
+            </a>
+          </div>
+        </div>
+    </header>
+
+    <!--table-->
+    <section>
+      <div class="container">
+        <div class="grid grid-cols-3 gap-12">
+          <!--left-->
+          <div class="col-span-2">
+            <div class="card shadow-xl">
+              <div class="overflow-x-auto">
+                <table class="table">
+                  <!-- head -->
+                  <thead>
+                    <tr>
+                      
+                      <th>Products</th>
+                      <th>price</th>
+                      <th>Quantity</th>
+                      <th> Subs-total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- row 1 -->
+                    <tr>
+                      <td>
+                        <div class="flex items-center gap-3">
+                          <div class="avatar">
+                            <div class="mask mask-squircle w-12 h-12">
+                              <img src="https://cdn.dummyjson.com/product-images/1/thumbnail.jpg" alt="Avatar Tailwind CSS Component" />
+                            </div>
+                          </div>
+                          <div>
+                            <div class="font-bold">iPhone 9</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        $549
+                        <br/>
+                      </td>
+                      <td>
+                        <input type="number" value="1" class="input input-bordered w-32 max-w-xs" />
+                      </td>
+                      <th>
+                        $549
+                      </th>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!--right-->
+          <div>
+            <div class="card shadow-xl">
+              <div class="card-body">
+                <h2 class="card-title">Cart Totals</h2>
+
+                <div class="flex justify-between">
+                  <span class="text-gray-500">Sub-Total</span>
+                  <span>$549</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-500">Shipping</span>
+                  <span>free</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-500">Discount</span>
+                  <span>$0</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-500">Tax</span>
+                  <span>$0</span>
+                </div>
+                <hr>
+                <div class="flex justify-between">
+                  <span class="text-gray-500">Total</span>
+                  <span>$549</span>
+                </div>
+                <button class="btn btn-primary mt-3">Proceed to checkout</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <script type="module" src="main.js"></script>
+</body>
+</html>
