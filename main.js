@@ -1,5 +1,5 @@
 import './style.css'
-import { getCart,setCart } from "./cart";
+import { getCart,setCart } from "./utilities";
 
 function initialize() {
     const value=localStorage.getItem("cart");
@@ -34,7 +34,6 @@ function getProductDiv(product)
               <h2 class="card-title">${product.title}</h2>
               <p>${product.description}.</p>
               <p>$${product.price}</p>
-              
             </div>
         </div>
     `;
@@ -57,6 +56,7 @@ function getProductDiv(product)
                 title: product.title,
                 description: product.description,
                 thumbnail: product.thumbnail,
+                price: product.price,
                 quantity:1
             });
         }
