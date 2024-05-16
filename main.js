@@ -1,4 +1,5 @@
 import './style.css'
+import { setCart } from "./cart";
 
 function initialize() {
     const value=localStorage.getItem("cart");
@@ -20,16 +21,9 @@ async function getProducts() {
     const data = await res.json();
     return data.products;
 }
-function getCart() {
-    const value=localStorage.getItem("cart");
-    return JSON.parse(value);
-}
-function setCart(cart) {
-    localStorage.setItem("cart",JSON.stringify(cart));
-}
 function getProductDiv(product) 
 {
-    const div =document.createElement("div");
+    const div = document.createElement("div");
     div.innerHTML = ` 
         <div class="card bg-base-100 shadow-xl relative h-32">
             <figure>
@@ -46,8 +40,10 @@ function getProductDiv(product)
     `;
 
     const button=document.createElement("button");
-    button.innerHTML=`<div class="card-actions justify-end">
+    button.innerHTML = `
+    <div class="card-actions justify-end">
     <button class="btn btn-primary btn-sm">Add to Card</button></div>`;
+    
     div.querySelector(".card-body").appendChild(button);
     
     button.addEventListener("click",()=>{
@@ -85,11 +81,13 @@ async function randerProducts() {
     const products = await getProducts();
     const divProducts=document.querySelector(".products");  
     
-    initialize();
 
     for(let i=0;i<products.length;i++){
         divProducts.appendChild(getProductDiv(products[i]));
     }
 }
 
-randerProducts();
+window.addEventListener("load",()=>{
+    initialize();
+    randerProducts();
+});
