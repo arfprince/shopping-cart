@@ -1,5 +1,5 @@
 import './style.css'
-import { setCart } from "./cart";
+import { getCart,setCart } from "./cart";
 
 function initialize() {
     const value=localStorage.getItem("cart");
