@@ -80,7 +80,6 @@ function getProductDiv(product)
 async function randerProducts() {
     const products = await getProducts();
     const divProducts=document.querySelector(".products");  
-    
 
     for(let i=0;i<products.length;i++){
         divProducts.appendChild(getProductDiv(products[i]));

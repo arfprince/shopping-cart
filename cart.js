@@ -25,27 +25,41 @@ function getCartRow(item) {
             <br/>
         </td>
         <td>
-            <input type="number" value="${item.quantity}" class="input input-bordered w-32 max-w-xs" />
+            <input type="number" value="${item.quantity}" min="0" class="quantity-input input input-bordered w-24 max-w-xs" />
         </td>
-        <th>
-            ${item.price}
-        </th>
+        <td>
+            $${item.price*item.quantity}
+        </td>
     `;
+
+    const input=tr.querySelector(".quantity-input");
+    input.addEventListener("input",(e)=>{
+        if(Number.isInteger(e.target.valueAsNumber) && e.target.valueAsNumber>=0){
+            //local storage update
+            const cart=getCart();
+            cart.items=cart.items.map((curItem)=>{
+                if(item.id!==curItem.id) return curItem;
+                curItem.quantity=e.target.valueAsNumber;
+                return curItem;
+            });
+            setCart(cart);
+            // ui update
+            randerCart();
+        };
+    });
     return tr;
 }
 function randerCart(){
     const cart=getCart();
     const cartItems = document.querySelector(".cart-items");
-
+    cartItems.innerHTML="";
     for(let i=0;i<cart.items.length;i++)
     {
         const item=cart.items[i];
-        console.log(item);
         cartItems.appendChild(getCartRow(item));
     }
 }
 window.addEventListener("load",()=>{
     initialize();
     randerCart();
-    console.log("loaded");
 });
