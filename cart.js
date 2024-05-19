@@ -5,6 +5,20 @@ function initialize() {
     const cart=getCart();
     document.querySelector(".cart-total-items").innerHTML=cart.items.length;
 }
+function totalPrice() {
+    const cart=getCart();
+    let total=0,discount=0;
+    for(let i=0;i<cart.items.length;i++)
+    {
+        total+=cart.items[i].price*cart.items[i].quantity;
+        discount+=(cart.items[i].price*(cart.items[i].discount/100))*cart.items[i].quantity;
+    }
+    if(total>0) total+=100;
+    
+    document.querySelector("#sub-total").innerHTML=`$${total}`;
+    document.querySelector("#discount").innerHTML=`$${Math.ceil(discount)}`;
+    document.querySelector("#total").innerHTML=`$${Math.floor(total-discount)}`;
+}
 function getCartRow(item) {
     const tr=document.createElement("tr");
     tr.innerHTML=`
@@ -43,6 +57,7 @@ function getCartRow(item) {
                 return curItem;
             });
             setCart(cart);
+            totalPrice();
             // ui update
             randerCart();
         };
@@ -58,6 +73,7 @@ function randerCart(){
         const item=cart.items[i];
         cartItems.appendChild(getCartRow(item));
     }
+    totalPrice();
 }
 window.addEventListener("load",()=>{
     initialize();

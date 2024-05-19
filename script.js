@@ -57,7 +57,8 @@ function getProductDiv(product)
                 description: product.description,
                 thumbnail: product.thumbnail,
                 price: product.price,
-                quantity:1
+                quantity:1,
+                discount: product.discountPercentage
             });
         }
         else{
