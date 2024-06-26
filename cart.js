@@ -25,8 +25,8 @@ function getCartRow(item) {
         <td>
         <div class="flex items-center gap-3">
         <div class="avatar">
-            <div class="mask mask-squircle h-10 w-10">
-            <img src="${item.thumbnail}" alt="Avatar Tailwind CSS Component" class="h-10 w-10" />
+            <div class="h-10 w-10">
+            <img src="${item.thumbnail}" alt="Avatar Tailwind CSS Component" />
             </div>
         </div>
         <div>
